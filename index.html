@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Make Christ Cool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:    #0C0C14;
+    --deep:   #13121F;
+    --mid:    #1E1C30;
+    --gold:   #C9922A;
+    --gold-lt:#E8B757;
+    --cream:  #F5EDD8;
+    --muted:  #9B95B0;
+    --border: rgba(201,146,42,0.2);
+    --serif:  'Cormorant Garamond', Georgia, serif;
+    --sans:   'Outfit', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(12,12,20,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--gold-lt); }
+  .nav-cta {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 4rem 5rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 70% 45%, rgba(201,146,42,0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,146,42,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,146,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,146,42,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; max-width: 680px; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 0.35rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    padding: 0.85rem 2.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+  .btn-ghost {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    transition: color 0.25s;
+  }
+  .btn-ghost:hover { color: var(--cream); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: var(--muted); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.15); }
+  }
+
+  /* ── VISION ── */
+  section { padding: 7rem 4rem; }
+  .section-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .vision {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .vision-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .vision h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 1.25rem;
+  }
+  .vision-text {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+  .vision-quote {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.5;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+  .vision-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── FIGURINES ── */
+  .figurines-header {
+    max-width: 550px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .figurines-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+  .figurines-header p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .figurines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .fig-card {
+    background: var(--deep);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .fig-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .fig-card:hover { transform: translateY(-6px); border-color: rgba(201,146,42,0.5); }
+  .fig-card:hover::before { opacity: 1; }
+
+  .fig-number {
+    font-family: var(--serif);
+    font-size: 4rem;
+    font-weight: 600;
+    color: rgba(201,146,42,0.12);
+    line-height: 1;
+    position: absolute;
+    top: 1rem; right: 1.25rem;
+  }
+  .fig-icon {
+    width: 48px; height: 48px;
+    background: rgba(201,146,42,0.1);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .fig-name {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+  .fig-theme {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .fig-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* ── STORY STRIP ── */
+  .story-strip {
+    background: var(--mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 4rem;
+  }
+  .story-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .story-inner h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .story-inner p {
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+  }
+
+  /* ── FOUND IT ── */
+  .found-it {
+    background: linear-gradient(135deg, #0C0C14 0%, #1A1428 50%, #0C0C14 100%);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .found-it::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,146,42,0.08) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .found-it-inner { position: relative; max-width: 600px; margin: 0 auto; }
+  .found-it h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+  .found-it p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.85;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080810;
+    border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * { animation: fadeUp 0.7s ease both; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+    .hero, section, .story-strip, .found-it { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .vision-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Make<span>Christ</span>Cool</a>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#figurines">Figurines</a></li>
+    <li><a href="#story">Our Story</a></li>
+  </ul>
+  <a href="#found-it" class="nav-cta">You Found It</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Faith &bull; Hope &bull; Identity</span>
+    <h1>Bringing the Gospel<br>into <em>every corner</em><br>of their world.</h1>
+    <p class="hero-sub">Tangible reminders of hope, worth, and unconditional love — designed for the generation that needs them most.</p>
+    <div class="hero-actions">
+      <a href="#figurines" class="btn-primary">Explore the Figurines</a>
+      <a href="#story" class="btn-ghost">Our Story &rarr;</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision" id="vision">
+  <div class="vision-inner">
+    <div>
+      <span class="section-label">Our Vision</span>
+      <h2>Redefining how youth experience the Gospel</h2>
+      <p class="vision-text">We believe every young person deserves a tangible reminder that they are seen, loved, and never alone. Our mission is to place those reminders — beautifully crafted, deeply meaningful — in every corner of their world.</p>
+    </div>
+    <div>
+      <blockquote class="vision-quote">
+        "To place tangible reminders of hope and unconditional love in every corner of their world."
+        <cite>— Make Christ Cool</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURINES -->
+<section id="figurines">
+  <div class="figurines-header">
+    <span class="section-label">The Collection</span>
+    <h2>Four Figurines. Four Truths.</h2>
+    <p>Each piece carries a message for the moments that matter most.</p>
+  </div>
+  <div class="figurines-grid">
+
+    <div class="fig-card">
+      <div class="fig-number">01</div>
+      <div class="fig-icon">🕊️</div>
+      <div class="fig-theme">Peace</div>
+      <div class="fig-name">Peace Stone</div>
+      <p class="fig-desc">To remind you that peace is a gift, not something you have to earn.</p>
+    </div>
+
+    <div class="fig-card">
+      <div class="fig-number">02</div>
+      <div class="fig-icon">✝️</div>
+      <div class="fig-theme">Hope</div>
+      <div class="fig-name">Glow-Cross</div>
+      <p class="fig-desc">To remind you that even a small light can break the heaviest dark.</p>
+    </div>
+
+    <div class="fig-card">
+      <div class="fig-number">03</div>
+      <div class="fig-icon">🎨</div>
+      <div class="fig-theme">Worth</div>
+      <div class="fig-name">Masterpiece Cube</div>
+      <p class="fig-desc">To remind you that you are designed with infinite detail and purpose.</p>
+    </div>
+
+    <div class="fig-card">
+      <div class="fig-number">04</div>
+      <div class="fig-icon">🐑</div>
+      <div class="fig-theme">Connection</div>
+      <div class="fig-name">Pocket Shepherd</div>
+      <p class="fig-desc">To remind you that you are seen, known, and never truly alone.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- STORY STRIP -->
+<div class="story-strip" id="story">
+  <div class="story-inner">
+    <span class="section-label" style="display:block; text-align:center; margin-bottom:1rem;">Our Story</span>
+    <h2>Faith that fits in your pocket — and your heart.</h2>
+    <p>Make Christ Cool was born from a simple conviction: that the Gospel is the most compelling story ever told, and that it deserves to be communicated in a way that meets young people exactly where they are. We're not here to make faith trendy. We're here to help it feel <em>real</em>.</p>
+    <a href="#" class="btn-primary">Read Our Full Story</a>
+  </div>
+</div>
+
+<!-- FOUND IT -->
+<section class="found-it" id="found-it">
+  <div class="found-it-inner">
+    <span class="section-label" style="display:block; margin-bottom:1rem;">A message for you</span>
+    <h2>You Found It.<br>And you're not here by accident.</h2>
+    <p>If something brought you to this page today, we believe it wasn't random. There's a love that has been pursuing you longer than you know. We'd be honored to walk with you toward it.</p>
+    <a href="#" class="btn-primary">I Want to Know More</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Make<span>Christ</span>Cool</div>
+  <div class="footer-copy">&copy; 2025 Make Christ Cool &mdash; All rights reserved.</div>
+</footer>
+
+</body>
+</html>
