@@ -1,0 +1,213 @@
+--- index.html
++++ index.html
+@@ -433,6 +433,76 @@
+   .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+   .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+   .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
++
++  .contact-section { padding: 7rem 4rem; }
++
++  /* ── DONATIONS ── */
++  .donations-section {
++    background: var(--deep);
++    border-top: 1px solid var(--border);
++    border-bottom: 1px solid var(--border);
++    padding: 7rem 4rem;
++    text-align: center;
++  }
++  .donations-inner { max-width: 1000px; margin: 0 auto; }
++  .donations-section h2 {
++    font-family: var(--serif);
++    font-size: clamp(2rem, 4vw, 3rem);
++    font-weight: 500;
++    color: var(--cream);
++    margin-bottom: 1rem;
++    line-height: 1.2;
++  }
++  .donations-section p {
++    font-size: 1rem;
++    font-weight: 300;
++    color: var(--muted);
++    max-width: 600px;
++    margin: 0 auto 3.5rem;
++    line-height: 1.85;
++  }
++  .donation-cards {
++    display: flex;
++    gap: 1.5rem;
++    justify-content: center;
++    flex-wrap: wrap;
++  }
++  .donation-card {
++    background: rgba(201,146,42,0.05);
++    border: 1px solid var(--border);
++    border-radius: 4px;
++    padding: 2.5rem 1.5rem;
++    flex: 1 1 180px;
++    min-width: 160px;
++    max-width: 220px;
++    text-decoration: none;
++    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
++    display: flex;
++    flex-direction: column;
++    align-items: center;
++    justify-content: center;
++  }
++  .donation-card:hover {
++    transform: translateY(-6px);
++    border-color: rgba(201,146,42,0.5);
++    background: rgba(201,146,42,0.1);
++  }
++  .donation-amount {
++    font-family: var(--serif);
++    font-size: 2.5rem;
++    font-weight: 600;
++    color: var(--gold-lt);
++    margin-bottom: 0.5rem;
++    line-height: 1;
++  }
++  .donation-label {
++    font-size: 0.8rem;
++    font-weight: 500;
++    letter-spacing: 0.1em;
++    text-transform: uppercase;
++    color: var(--cream);
++    text-align: center;
++  }
+
+   /* ── RESPONSIVE ── */
+   @media (max-width: 768px) {
+@@ -438,7 +508,7 @@
+   @media (max-width: 768px) {
+     nav { padding: 1rem 1.5rem; }
+     .nav-links, .nav-cta { display: none; }
+-    .hero, section, .story-strip, .found-it, .contact-section { padding-left: 1.5rem; padding-right: 1.5rem; }
++    .hero, section, .story-strip, .found-it, .contact-section, .donations-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+     .vision-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+     footer { padding: 2rem 1.5rem; }
+   }
+@@ -467,7 +537,6 @@
+     <p class="hero-sub">Tangible reminders of hope, worth, and unconditional love — designed for the generation that needs them most.</p>
+     <div class="hero-actions">
+       <a href="#figurines" class="btn-primary">Explore the Figurines</a>
+-      <a href="https://square.link/u/PLACEHOLDER" target="_blank" class="btn-primary">Pay with Square</a>
+       <a href="#story" class="btn-ghost">Our Story &rarr;</a>
+     </div>
+   </div>
+@@ -511,7 +580,8 @@
+       <div class="fig-icon">🕊️</div>
+       <div class="fig-theme">Peace</div>
+       <div class="fig-name">Peace Stone</div>
+-      <p class="fig-desc">To remind you that peace is a gift, not something you have to earn.</p>
++      <p class="fig-desc" style="margin-bottom: 1.5rem;">To remind you that peace is a gift, not something you have to earn.</p>
++      <a href="https://square.link/u/VBjWwM7y" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Buy Now &mdash; $2.50</a>
+     </div>
+
+     <div class="fig-card">
+@@ -519,7 +589,8 @@
+       <div class="fig-icon">✝️</div>
+       <div class="fig-theme">Hope</div>
+       <div class="fig-name">Glow-Cross</div>
+-      <p class="fig-desc">To remind you that even a small light can break the heaviest dark.</p>
++      <p class="fig-desc" style="margin-bottom: 1.5rem;">To remind you that even a small light can break the heaviest dark.</p>
++      <a href="https://square.link/u/qM5WXAxG" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Buy Now &mdash; $2.50</a>
+     </div>
+
+     <div class="fig-card">
+@@ -527,7 +598,8 @@
+       <div class="fig-icon">🎨</div>
+       <div class="fig-theme">Worth</div>
+       <div class="fig-name">Masterpiece Cube</div>
+-      <p class="fig-desc">To remind you that you are designed with infinite detail and purpose.</p>
++      <p class="fig-desc" style="margin-bottom: 1.5rem;">To remind you that you are designed with infinite detail and purpose.</p>
++      <a href="https://square.link/u/Dyjz3dlA" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Buy Now &mdash; $2.50</a>
+     </div>
+
+     <div class="fig-card">
+@@ -535,7 +607,8 @@
+       <div class="fig-icon">🐑</div>
+       <div class="fig-theme">Connection</div>
+       <div class="fig-name">Pocket Shepherd</div>
+-      <p class="fig-desc">To remind you that you are seen, known, and never truly alone.</p>
++      <p class="fig-desc" style="margin-bottom: 1.5rem;">To remind you that you are seen, known, and never truly alone.</p>
++      <a href="https://square.link/u/3xMHZ3v4" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Buy Now &mdash; $2.50</a>
+     </div>
+
+   </div>
+@@ -598,6 +671,36 @@
+   </div>
+ </section>
+
++<!-- DONATIONS -->
++<section class="donations-section" id="donations">
++  <div class="donations-inner">
++    <span class="section-label">Support the Mission</span>
++    <h2>Every gift helps place a reminder of hope in the hands of a young person who needs it.</h2>
++    <div class="donation-cards">
++      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
++        <span class="donation-amount">$5</span>
++        <span class="donation-label">Plant a Seed</span>
++      </a>
++      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
++        <span class="donation-amount">$10</span>
++        <span class="donation-label">Light a Candle</span>
++      </a>
++      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
++        <span class="donation-amount">$25</span>
++        <span class="donation-label">Carry a Torch</span>
++      </a>
++      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
++        <span class="donation-amount">$50</span>
++        <span class="donation-label">Build the Kingdom</span>
++      </a>
++      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
++        <span class="donation-amount">$100</span>
++        <span class="donation-label">Move a Mountain</span>
++      </a>
++    </div>
++  </div>
++</section>
++
+ <!-- CONTACT FORM -->
+ <section id="contact" class="contact-section" style="background: var(--ink);">
+   <div style="max-width: 600px; margin: 0 auto;">
+@@ -610,7 +713,7 @@
+       <p style="color: var(--cream);">Your message has been received. We're praying for you! 🙏</p>
+     </div>
+
+-    <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT_URL_HERE" method="POST" novalidate style="display: flex; flex-direction: column; gap: 1.5rem;">
++    <form id="contact-form" action="https://formspree.io/f/mlgzqadq" method="POST" novalidate style="display: flex; flex-direction: column; gap: 1.5rem;">
+       <div class="form-group">
+         <label for="name" style="display: block; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem;">Name *</label>
+         <input type="text" id="name" name="name" required style="width: 100%; padding: 1rem; background: var(--deep); border: 1px solid var(--border); border-radius: 2px; color: var(--cream); font-family: var(--sans); font-size: 1rem; transition: border-color 0.3s ease; outline: none;">
+@@ -719,25 +822,14 @@
+           form.style.display = 'none';
+           successMsg.style.display = 'block';
+         } else {
+-          // If the placeholder is used, simulating a success
+-          if (form.action.includes('YOUR_FORMSPREE_ENDPOINT_URL_HERE')) {
+-             form.style.display = 'none';
+-             successMsg.style.display = 'block';
+-          } else {
+-             alert('Oops! There was a problem submitting your form');
+-             submitBtn.textContent = originalText;
+-             submitBtn.disabled = false;
+-          }
++          alert('Oops! There was a problem submitting your form');
++          submitBtn.textContent = originalText;
++          submitBtn.disabled = false;
+         }
+       } catch (error) {
+-         if (form.action.includes('YOUR_FORMSPREE_ENDPOINT_URL_HERE')) {
+-             form.style.display = 'none';
+-             successMsg.style.display = 'block';
+-          } else {
+-            alert('Oops! There was a problem submitting your form');
+-            submitBtn.textContent = originalText;
+-            submitBtn.disabled = false;
+-          }
++        alert('Oops! There was a problem submitting your form');
++        submitBtn.textContent = originalText;
++        submitBtn.disabled = false;
+       }
+     });
