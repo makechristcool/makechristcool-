@@ -436,11 +436,79 @@
 
   .contact-section { padding: 7rem 4rem; }
 
+  /* ── DONATIONS ── */
+  .donations-section {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 7rem 4rem;
+    text-align: center;
+  }
+  .donations-inner { max-width: 1000px; margin: 0 auto; }
+  .donations-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .donations-section p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 3.5rem;
+    line-height: 1.85;
+  }
+  .donation-cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .donation-card {
+    background: rgba(201,146,42,0.05);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem 1.5rem;
+    flex: 1 1 180px;
+    min-width: 160px;
+    max-width: 220px;
+    text-decoration: none;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .donation-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,146,42,0.5);
+    background: rgba(201,146,42,0.1);
+  }
+  .donation-amount {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--gold-lt);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  .donation-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-align: center;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links, .nav-cta { display: none; }
-    .hero, section, .story-strip, .found-it, .contact-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .hero, section, .story-strip, .found-it, .contact-section, .donations-section { padding-left: 1.5rem; padding-right: 1.5rem; }
     .vision-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     footer { padding: 2rem 1.5rem; }
   }
@@ -600,6 +668,36 @@
     <h2>You Found It.<br>And you're not here by accident.</h2>
     <p>If something brought you to this page today, we believe it wasn't random. There's a love that has been pursuing you longer than you know. We'd be honored to walk with you toward it.</p>
     <a href="https://victoryatl.com/locations/hamilton-mill/" target="_blank" rel="noopener noreferrer" class="btn-primary">I Want to Know More</a>
+  </div>
+</section>
+
+<!-- DONATIONS -->
+<section class="donations-section" id="donations">
+  <div class="donations-inner">
+    <span class="section-label">Support the Mission</span>
+    <h2>Every gift helps place a reminder of hope in the hands of a young person who needs it.</h2>
+    <div class="donation-cards">
+      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
+        <span class="donation-amount">$5</span>
+        <span class="donation-label">Plant a Seed</span>
+      </a>
+      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
+        <span class="donation-amount">$10</span>
+        <span class="donation-label">Light a Candle</span>
+      </a>
+      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
+        <span class="donation-amount">$25</span>
+        <span class="donation-label">Carry a Torch</span>
+      </a>
+      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
+        <span class="donation-amount">$50</span>
+        <span class="donation-label">Build the Kingdom</span>
+      </a>
+      <a href="https://square.link/u/a13tJ8wI" target="_blank" rel="noopener noreferrer" class="donation-card">
+        <span class="donation-amount">$100</span>
+        <span class="donation-label">Move a Mountain</span>
+      </a>
+    </div>
   </div>
 </section>
 
